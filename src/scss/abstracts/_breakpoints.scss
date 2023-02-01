@@ -1,0 +1,42 @@
+@use 'functions' as *;
+
+$breakpoints: (
+        mobile-sm: 20rem /* 320/16 */,
+        sm: 23.4375rem /* 375/16 */,
+        mobile-big: 25.875rem /* 414/16 */,
+        md: 48rem /* 768/16 */,
+        lg: 90rem /* 1440/16 */,
+);
+$breakpoint-gaps: (
+        mobile-sm: 1rem,
+        sm: 1.3125rem /* 21/16 */,
+        mobile-big: 1.5rem,
+        md: 2.875rem /* 46/16 */,
+        lg: 7.5rem /* 120/16 */,
+);
+@function get-breakpoint-gap($bp) {
+  @return map-get($breakpoint-gaps, $bp);
+}
+
+@function get-breakpoint-width($bp) {
+  @return map-get($breakpoints, $bp);
+}
+
+@function calc-responsive-gap($bp-min, $bp-max) {
+  @return linear-scale(
+                  get-breakpoint-gap($bp-min),
+                  get-breakpoint-gap($bp-max),
+                  get-breakpoint-width($bp-min),
+                  get-breakpoint-width($bp-max));
+}
+
+$container-gaps: (
+        mobile-sm: get-breakpoint-gap(mobile-sm),
+        sm: calc-responsive-gap(sm, md),
+        mobile-big: calc-responsive-gap(mobile-big, md),
+        md: calc-responsive-gap(md, lg),
+        lg: get-breakpoint-gap(lg)
+);
+@function get-container-gap($bp) {
+  @return map-get($container-gaps, $bp);
+}

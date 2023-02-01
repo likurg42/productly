@@ -1,0 +1,33 @@
+include '../mixins/_tool.pug';
+section.tools
+  .container-lg
+    h2  We design  tools to unveil your superpowers
+    .layout-4-columns
+      +tool('First click tests', '/src/icons/icon-mouse.svg#mouse', 'While most people enjoy casino gambling, you can start making real money')
+      +tool()
+      +tool()
+      +tool()
+    .row
+      .col.col-3
+
+        .tool
+          h4  First click tests
+          .tool__icon.icon
+          p   While most people enjoy casino gambling,
+      .col.col-3
+        .tool
+          h4  Design surveys
+          .tool__icon.icon
+          p   Sports betting, lottery and bingo playing for the fun
+      .col.col-3
+        .tool
+          h4  First click tests
+          svg.tool__icon.icon
+            use(href="/src/icons/icon-heart.svg#heart")
+          p   The Myspace page defines the individual.
+      .col.col-3
+        .tool
+          h4  First click tests
+          .tool__icon.icon
+          p   Personal choices and the overall personality of the person.
+    .button.button--colored.tools__button Sign Up now

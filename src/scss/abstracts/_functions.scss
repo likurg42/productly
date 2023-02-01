@@ -1,0 +1,16 @@
+@use 'sass:map';
+@use "sass:math";
+
+@function rem($value) {
+  $result: math.div($value, 16px) * 1rem;
+
+  @return $result;
+}
+
+@function linear-scale($value-min, $value-max, $vw-min, $vw-max) {
+  $slope: math.div($value-max - $value-min, $vw-max - $vw-min);
+  $yAxisIntersection: -$vw-min * $slope + $value-min;
+  $result: clamp(#{$value-min}, #{$yAxisIntersection} + #{$slope * 100}vw, #{$value-max});
+
+  @return $result;
+}

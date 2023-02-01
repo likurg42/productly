@@ -1,0 +1,29 @@
+@use '../abstracts/fonts' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/breakpoints' as *;
+
+:root {
+  // Colors
+  --clr-primary: #FF9900;
+  --clr-title: #2F281E;
+  --clr-text: #544837;
+  --clr-email: #1943EF;
+  --clr-placeholder: #C6C6C6;
+
+  --clr-violet: #7752BE;
+  --clr-yellow: #FAB005;
+  --clr-red: #F03E3D;
+  --clr-blue: #4DADF7;
+
+  // Background
+  --clr-bg-tag: #F5F5F5;
+  --clr-bg-section: #FFEEE1;
+
+  // Fonts
+  --f-body: 400 1rem / 1.625 #{$font-family-primary};
+  --f-link: 700 1rem / 1.5 #{$font-family-link};
+}
+
+body {
+  font: var(--f-body);
+}

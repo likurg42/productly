@@ -1,0 +1,72 @@
+@use 'sass:map';
+@use 'sass:math';
+
+@use '../abstracts/breakpoints' as *;
+@use '../abstracts/mixins' as *;
+
+.grid {
+  --gap: var(--current-gap, 1.5rem);
+
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  margin-left: calc(var(--gap) * -0.5);
+  margin-right: calc(var(--gap) * -0.5);
+
+  & + & {
+    margin-top: var(--gap);
+  }
+}
+
+%col {
+  flex: 1 0 100%;
+  padding-left: calc(var(--gap) * 0.5);
+  padding-right: calc(var(--gap) * 0.5);
+}
+
+.col {
+  @extend %col;
+  flex-basis: 100%;
+}
+
+@for $i from 1 to 13 {
+  .col-#{$i} {
+    @extend %col;
+    flex-basis: math.div(100%, 12) * $i;
+  }
+}
+
+@each $bp, $bp-width in $breakpoints {
+  $start: index($breakpoints, $bp $bp-width);
+
+  .col-#{$bp} {
+    @extend %col;
+    flex-basis: 100%;
+  }
+
+  @for $pos from $start through length($breakpoints) {
+    $bp-current: nth(nth($breakpoints, $pos), 1);
+
+    .col-#{$bp} {
+      @extend %col;
+
+      @include mq-min($bp-current) {
+        flex-basis: 0;
+      }
+    }
+
+    @for $i from 1 to 13 {
+      .col-#{$bp}-#{$i} {
+        @extend %col;
+
+        @include mq-min($bp-current) {
+          flex-basis: math.div(100%,  12) * $i
+        }
+      }
+    }
+
+
+  }
+
+}

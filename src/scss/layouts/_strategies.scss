@@ -1,0 +1,35 @@
+@use '../abstracts/mixins' as *;
+
+.strategies {
+  --current-gap: 1.5rem;
+
+  &__grid {
+    @include mq-min(sm) {
+      & > *:nth-child(1n + 2) {
+        margin-top: var(--current-gap);
+      }
+    }
+
+
+    @include mq-min(md) {
+      & > *:nth-child(1n + 2) {
+        margin-top: 0;
+      }
+
+      & > *:nth-child(1n + 3) {
+        margin-top: var(--current-gap);
+      }
+    }
+
+
+    @include mq-min(lg) {
+      & > *:nth-child(1n + 3) {
+        margin-top: 0;
+      }
+
+      & > *:nth-child(1n + 4) {
+        margin-top: var(--current-gap);
+      }
+    }
+  }
+}

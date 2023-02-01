@@ -1,0 +1,19 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  font: var(--f-link);
+
+  &__icon {
+    margin-bottom: 5px;
+    width: 20px;
+    height: 18px;
+    line-height: inherit;
+  }
+
+  &__text {
+    color: var(--clr-primary);
+    text-decoration: underline;
+  }
+}

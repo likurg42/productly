@@ -1,0 +1,48 @@
+@use 'sass:map';
+@use '../abstracts/breakpoints' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+.container {
+  box-sizing: border-box;
+  padding: 0 1rem;
+
+  &:not(.is-fluid) {
+    margin: 0 auto;
+
+    @each $bp, $breakpoint-size in $breakpoints {
+      @include mq-min($bp) {
+        width: 100%;
+        max-width: get-breakpoint-width($bp)
+      }
+    }
+  }
+}
+
+@each $bp, $breakpoint-size in $breakpoints {
+  .container-#{$bp} {
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+
+    $start: index($breakpoints, $bp $breakpoint-size);
+
+    @each $bp, $bp-width in $breakpoints {
+      @include mq-min($bp) {
+        padding: 0 get-container-gap($bp);
+      }
+    }
+
+    @for $i from $start through length($breakpoints) {
+      $current-bp: nth(nth($breakpoints, $i), 1);
+
+      @include mq-min($current-bp) {
+        max-width: get-breakpoint-width($current-bp);
+        padding: 0 get-breakpoint-gap($current-bp)
+      }
+    }
+
+  }
+}
+

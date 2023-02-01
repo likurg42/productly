@@ -1,0 +1,6 @@
+mixin tool(title, iconPath, content)
+  .tool()&attributes(attributes)
+    h4.tool__title=title
+    svg.tool__icon.icon
+      use(href=iconPath)
+    p=content

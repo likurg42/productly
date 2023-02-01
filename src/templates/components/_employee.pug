@@ -1,0 +1,8 @@
+mixin employee(name, title, email, imgPath)
+  .employee.block-shadow
+    .employee__content
+      h4.employee__name= name
+      p.employee__title= title
+      a.employee__email(href=`mailto:${email}`)= email
+    .employee__img
+      img(src=imgPath)

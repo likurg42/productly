@@ -1,0 +1,28 @@
+include ../components/_strategy
+section.strategies
+    .container-lg
+        h2  Marketing Strategies
+        p   Join 40,000+ other marketers and get proven strategies on email marketing
+        div.strategies__tags.tags
+            span.tags__item.tags__item--active All
+            span.tags__item.tags__item--active Art
+            span.tags__item.tags__item--active Culture
+            span.tags__item.tags__item--active Design
+        .grid.strategies__grid
+            each item in data
+            .col-md-6.col-lg-4
+                +strategy('Increasing Prosperity With Positive Thinking', "src/imgs/strategies/preview-1.jpg", 'Art', 'Design')
+            .col-md-6.col-lg-4
+                +strategy('Motivation Is The First Step To Success', "src/imgs/strategies/preview-2.jpg", 'Design')
+            .col-md-6.col-lg-4
+                +strategy('Success Steps For Your Personal Or Business Life', 'src/imgs/strategies/preview-3.jpg', 'Culture', 'Design', 'Art')
+            .col-md-6.col-lg-8
+                +strategy('Success Steps For Your Personal Or Business Life Plus Funny Image on the Back', 'src/imgs/strategies/preview-4.jpg', 'Culture', 'Design', 'Art')
+            .col-md-6.col-lg-4
+                +strategy('Increasing Prosperity With Positive Thinking', 'src/imgs/strategies/preview-5.jpg','Design')
+            .col-md-6.col-lg-4
+                +strategy('Increasing Prosperity With Positive Thinking', "src/imgs/strategies/preview-1.jpg", 'Art', 'Design')
+            .col-md-6.col-lg-4
+                +strategy('Motivation Is The First Step To Success', "src/imgs/strategies/preview-2.jpg", 'Design')
+            .col-md-6.col-lg-4
+                +strategy('Success Steps For Your Personal Or Business Life', 'src/imgs/strategies/preview-3.jpg', 'Culture', 'Design', 'Art')

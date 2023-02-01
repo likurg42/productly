@@ -1,0 +1,8 @@
+@use 'sass:map';
+@use 'breakpoints' as *;
+
+@mixin mq-min($bp, $breakpoints: $breakpoints) {
+  @media screen and (min-width: map.get($breakpoints, $bp)) {
+    @content
+  }
+}

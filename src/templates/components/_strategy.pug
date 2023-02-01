@@ -1,0 +1,7 @@
+mixin strategy(title, imgPath,...tags)
+  .strategy()&attributes(attributes)
+    h3= title
+    img.strategy__img.img(src=imgPath)
+    .strategy__tags.tags
+      each tag in tags
+        span.tag= tag
